@@ -1,0 +1,12 @@
+ def doppia_lettera(s):
+    risultato = ''
+    for lettera in s:
+        risultato += lettera * 2
+    return risultato
+
+def funzione_segreta(a, b):
+    return str(a) + str(b)
+
+print(doppia_lettera("Ciao"))  # Output: "CCiiaaoo"
+print(funzione_segreta(1, 2))  # Output: "12"
+print(funzione_segreta("Ciao, ", "Mondo!"))  # Output: "Ciao, Mondo!"
