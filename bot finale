@@ -29,7 +29,7 @@ async def poki(ctx):
 
 @bot.command()
 async def mem(ctx):
-    file_path = os.path.join('c:', 'Users', 'mauri', 'OneDrive', 'Desktop', 'visual_code', 'Discord_Bot', 'mem1.jpg')
+    file_path = os.path.join('meme.png')
     try:
         with open(file_path, 'rb') as f:
             await ctx.send(file=discord.File(f, 'mem1.png'))
