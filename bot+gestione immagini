@@ -3,6 +3,8 @@ import random
 from discord.ext import commands
 from pass_gen import gen_pass
 import typing
+import requests
+import os
 
 # la variabile intents contiene i permessi al bot
 intents = discord.Intents.default()
@@ -12,13 +14,27 @@ intents.message_content = True
 # crea un bot e passa gli intents
 bot = commands.Bot(command_prefix='$', intents=intents)
 
+def get_poki_image_url():    
+    url = 'https://pokeapi.co/'
+    res = requests.get(url)
+    data = res.json()
+    return data['https://pokeapi.co/']
+
+
+@bot.command('duck')
+async def poki(ctx):
+    '''Una volta chiamato il comando duck, il programma richiama la funzione get_poki_image_url'''
+    image_url = get_poki_image_url()
+    await ctx.send(image_url)
+
 @bot.command()
 async def mem(ctx):
-    with open('mem1.png', 'rb') as f:
-        # Memorizziamo il file della libreria di Discord convertito in questa variabile!
-        picture = discord.File(f)
-   # Possiamo quindi inviare questo file come parametro!
-    await ctx.send(file=picture)
+    file_path = os.path.join('c:', 'Users', 'mauri', 'OneDrive', 'Desktop', 'visual_code', 'Discord_Bot', 'mem1.jpg')
+    try:
+        with open(file_path, 'rb') as f:
+            await ctx.send(file=discord.File(f, 'mem1.png'))
+    except FileNotFoundError:
+        await ctx.send("Sorry, I couldn't find the file 'mem1.jpg'. Please make sure it exists.")
 
 @bot.event
 async def on_ready():
