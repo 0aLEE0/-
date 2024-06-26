@@ -15,7 +15,7 @@ async def on_message(message):
     if message.author == client.user:
         return
     if message.content.startswith('$ciao'):
-        await message.channel.send(f"Ciao! Io sono un bot {client.user}!")
+        await message.channel.send(f"Ciao! Io sono un bot{client.user}!")
     elif message.content.startswith('$heh'):
         if len(message.content) > 4:
             count_heh = int(message.content[4:])
