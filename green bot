@@ -15,7 +15,6 @@ intents.message_content = True
 # crea un bot e passa gli intents
 bot = commands.Bot(command_prefix='$', intents=intents)
 
-
 @client.event
 async def on_ready():
     print(f"Hai fatto l'accesso come {client.user}")
