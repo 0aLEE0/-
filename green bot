@@ -28,7 +28,7 @@ async def on_message(message):
         await message.channel.send(f"Ciao! Io sono un bot{client.user}!")
     elif message.content.startswith('$green tips'):
         await message.channel.send(f"Idee per salvaguardare l'ambiente sono: \n\nfare la raccolta differenziata, \n\nusare plastica biodegradabile( come quelli per la spesa ), \n\ndare seconde vite ai rifiuti.")
-        with open('C:\\Users\\mauri\\OneDrive\\Desktop\\visual_code\\M1L6\\foto.jpg', 'rb') as f:
+    with open('C:\\Users\\mauri\\OneDrive\\Desktop\\visual_code\\M1L6\\foto.jpg', 'rb') as f:
         picture = discord.File(f)
         await ctx.send(f)
 
